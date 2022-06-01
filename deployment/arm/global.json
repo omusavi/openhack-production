@@ -73,7 +73,7 @@
             "location": "[resourceGroup().location]",
             "kind": "web",
             "dependsOn": [
-                "newWorkspaceTemplate"
+                "[resourceId('Microsoft.OperationalInsights/workspaces', 'loganalyticsworkspace')]"
             ],
             "properties": {
                 "Application_Type": "web",

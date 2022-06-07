@@ -36,7 +36,7 @@ stages:
         appServicePlanSkuResourceType: S1
         appServicePlanSkuResourceCount: 1
         regions:
-          - westus2
+          - westus3
 
   - stage: Staging
     displayName: Staging
@@ -54,7 +54,7 @@ stages:
         appServicePlanSkuResourceType: S1
         appServicePlanSkuResourceCount: 1
         regions:
-          - westus2
+          - westus3
           - eastus
 
   - stage: Production
@@ -73,6 +73,6 @@ stages:
         appServicePlanSkuResourceType: S1
         appServicePlanSkuResourceCount: 1
         regions:
-          - westus2
+          - westus3
           - eastus
           - centralus

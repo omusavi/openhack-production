@@ -1,5 +1,5 @@
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "appInsightsName": {
@@ -68,15 +68,26 @@
     "resources": [
         {
             "type": "microsoft.insights/components",
-            "apiVersion": "2015-05-01",
+            "apiVersion": "2020-02-02-preview",
             "name": "[parameters('appInsightsName')]",
             "location": "[resourceGroup().location]",
             "kind": "web",
+            "dependsOn": [
+                "[resourceId('Microsoft.OperationalInsights/workspaces', 'loganalyticsworkspace')]"
+            ],
             "properties": {
                 "Application_Type": "web",
                 "Flow_Type": "Bluefield",
-                "Request_Source": "rest"
+                "Request_Source": "rest",
+                "WorkspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', 'loganalyticsworkspace')]"
             }
+        },
+        {
+            "apiVersion": "2020-08-01",
+            "name": "loganalyticsworkspace",
+            "type": "Microsoft.OperationalInsights/workspaces",
+            "location": "[resourceGroup().location]",
+            "properties": {}
         },
         {
             "type": "Microsoft.Network/frontdoors",

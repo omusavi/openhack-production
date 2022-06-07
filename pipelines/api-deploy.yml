@@ -40,7 +40,7 @@ stages:
           appName: $(appName)
           environment: dev
           regions:
-            - westus2
+            - westus3
 
   - stage: Staging
     displayName: Staging
@@ -55,7 +55,7 @@ stages:
           appName: $(appName)
           environment: staging
           regions:
-            - westus2
+            - westus3
             - eastus
 
   - stage: Production
@@ -71,6 +71,6 @@ stages:
           appName: $(appName)
           environment: prod
           regions:
-            - westus2
+            - westus3
             - eastus
             - centralus

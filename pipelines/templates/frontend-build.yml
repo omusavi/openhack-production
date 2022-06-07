@@ -2,6 +2,10 @@ parameters:
   environment: ""
 
 steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '10.15.0' 
+
   - task: Npm@1
     displayName: Install Dependencies
     inputs:

@@ -60,6 +60,7 @@ jobs:
             region=$(region)
             publishPath="../../frontend/dist/frontend-${{ parameters.environment }}"
 
+            source deployment/arm/utils.sh
             source deployment/arm/common-script.sh
             storageActName=$(generateStorageAccountName -u $businessUnit -a $appName -e $env -r $region)
             az storage blob upload-batch -s $publishPath -d \$web --account-name $storageActName
